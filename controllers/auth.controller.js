@@ -53,3 +53,10 @@ exports.login = (req, res) => {
       .json({ status: "success", data: { user: other } });
   });
 };
+
+exports.logout = (req, res) => {
+  res
+    .clearCookie("accessToken", { secure: true, sameSite: "none" })
+    .status(200)
+    .json({ status: "success", message: "Logged out successfully" });
+};
