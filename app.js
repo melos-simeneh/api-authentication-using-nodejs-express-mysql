@@ -1,4 +1,5 @@
 const express = require("express");
+const authRouter = require("./routes/auth.routes");
 
 const app = express();
 
@@ -6,9 +7,7 @@ const app = express();
 app.use(express.json());
 
 //Routes
-app.get("/api/login", (req, res) => {
-  res.json({ status: "success", message: "Working" });
-});
+app.use("/api", authRouter);
 
 const PORT = 8000;
 app.listen(PORT, () => {
